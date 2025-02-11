@@ -1,8 +1,36 @@
-#main, #canvas {
+*{
+  margin:0px;
+
+}
+
+
+
+
+#main {
     border: 1px solid black;
-    width: 500px;
-    margin: 0 auto;
-    text-align: center;
+
   }
   
+#canvas{
+  border: 1px;
+  width: 60%;
+  height: 800px;
+  margin: auto
+}
+
+
+
+#form-body h1 {
+  text-align: center;
+}
+
+
+#form-body{
+  width:470px;
+  height: 545px;
+  margin: auto;
+  border: 1px solid black;
+  margin-top: 200px;
+  padding: 20px;
   
+}
