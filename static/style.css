@@ -12,7 +12,7 @@
   }
   
 #canvas{
-  border: 1px;
+  border: 00px;
   width: 60%;
   height: 800px;
   margin: auto
@@ -30,7 +30,7 @@
   height: 545px;
   margin: auto;
   border: 1px solid black;
-  margin-top: 200px;
+  margin-top: 108px;
   padding: 20px;
   
 }
