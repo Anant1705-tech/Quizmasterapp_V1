@@ -2,7 +2,7 @@ from flask import Flask, render_template, Response
 
 app = Flask(__name__)
 
-@app.route('/login')
+@app.route('/')
 
 
 def login_page():
