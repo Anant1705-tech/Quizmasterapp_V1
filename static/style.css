@@ -15,7 +15,8 @@
   border: 00px;
   width: 60%;
   height: 800px;
-  margin: auto
+  margin: auto;
+  overflow-y: auto;
 }
 
 

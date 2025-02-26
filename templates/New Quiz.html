@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <title> Quiz Master - New Quiz</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+  <style>
+            #form-body h2{
+              color: rgb(21, 136, 136);
+            
+        }
+            #form-body{
+                overflow-y: auto;
+            }
+
+  </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="canvas">
+            <div id = "form-body">
+
+                <h2> Create New Quiz </h2>
+                <br>
+                <form action="" method="post">
+
+                <div class="mb-3">
+                    <label for="Input1" class="form-label">Chapter ID</label>
+                    <input type="username" class="form-control" id="Input1" placeholder="" name="chapterID">
+                </div>
+                  <br>
+
+                  <div class="mb-3">
+                    <label for="Input2" class="form-label">Date</label>
+                    <input class="form-control" type="date" placeholder="" aria-label="Input2" name="date" >
+                 </div>
+                    <br>
+                    <br>
+                    <div class="mb-3">
+                        <label for="Input3" class="form-label">Duration</label>
+                        <input class="form-control" type="duration" placeholder="Time in HH MM " aria-label="Input3" name="duration">
+                    </div>
+                    <div style="text-align: right; margin-top: 40px;" >
+                        <input type="submit" class="btn btn-outline-primary" value = "Create">
+                        <input type="submit" class="btn btn-outline-danger" value = "Cancel">
+                     </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</body>
