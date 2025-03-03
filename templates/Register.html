@@ -25,7 +25,7 @@
                 <br>
                 <h2> Register </h2>
                 <br>
-                <form action="" method="post">
+                <form action="/register" method="post">
                 <div class="mb-3">
                     <label for="Input1" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="Input1" placeholder="yourname@example.com" name="email">
@@ -35,13 +35,14 @@
                   <label for="Input2" class="form-label">Username</label>
                   <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping">@</span>
-                    <input type="text" class="form-control" id="Input2" placeholder="melon_musk_45" aria-label="Username" aria-describedby="addon-wrapping" name="username">
+                    <input type="text" class="form-control" id="Input2" placeholder="elon_musk_45" aria-label="Username" aria-describedby="addon-wrapping" name="username">
                   </div>
                   <br>
 
                   <div class="mb-3">
                     <label for="Input3" class="form-label">Password</label>
-                    <input type="password" id="Input3" class="form-control" aria-describedby="passwordHelpBlock" input="pass">
+                    <input type="password" id="Input3" class="form-control" aria-describedby="passwordHelpBlock" name="pwd">
+                  </div>
 
                     <div id="passwordHelpBlock" class="form-text">
                       Your password must be 8-20 characters long, contain letters and numbers
@@ -50,7 +51,7 @@
                     <div style="text-align: right; margin-top: 40px;" >
                         <input type="submit" class="btn btn-outline-primary" value="Register">
                     </div>
-                  Already a member? <a href="Login Page.html">Login </a>
+                  Already a member? <a href="/login">Login </a>
                   </div>
                 </form>
             </div>

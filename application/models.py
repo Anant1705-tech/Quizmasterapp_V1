@@ -2,7 +2,7 @@
 
 from .database import db    #. will make it not to search in the root folder look in the application folder thats it 
 
-# we have two model user, admin
+# we have two- user, admin
 
 class User(db.Model):
     id = db.Column(db.Integer(), primary_key = True)
@@ -10,13 +10,29 @@ class User(db.Model):
     email = db.Column(db.String(), unique = True, nullable = False)
     password = db.Column(db.String(), nullable = False)
     type = db.Column(db.String(), default = "general")
-    details = db.relationship("Info", backref = "creator")
+    
+    # details = db.relationship("Info", backref = "creator")
 
-class Info(db.Model):
+class Subject(db.Model):
     id = db.Column(db.Integer(), primary_key = True)
-    atr_name = db.Column(db.String(), nullable = False)
-    atr_value  = db.Column(db.String(), nullable = False)
-    c_name = db.Column(db.String(), nullable = False)
-    user_id = db.Column(db.Integer(), db.ForeignKey ("user.id"), nullable = False)
+    subject_name = db.Column(db.String(), nullable=False)
+    description = db.Column(db.String(), nullable=False)
+    chapter_name = db.Column(db.String(), nullable=False)
+    number_of_questions = db.Column(db.Integer(), nullable=False)
+
+class Quizzes(db.Model):
+    id = db.Column(db.Integer(), primary_key = True)
+    chapter_id = db.Column(db.Integer, db.ForeignKey('subject.id'), nullable=False)
+    date_of_quiz = db.Column(db.Date())
+    time_duration = db.Column(db.String())
+    question_statement = db.Column(db.String(), nullable=False)
+    option1 = db.Column(db.String(), nullable=False)
+    option2 = db.Column(db.String(), nullable=False)
+    option3 = db.Column(db.String(), nullable=False)
+    option4 = db.Column(db.String(), nullable=False)
+    correct_answer = db.Column(db.String(), nullable=False)
+
+
+    
 
 

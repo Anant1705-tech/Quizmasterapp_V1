@@ -16,13 +16,13 @@
 
 <body>
     <div id="main">
-        <div id="canvas">
+        <div id="canvas"> 
             <div id = "form-body">
                 <h1> Quiz Master  </h1>
                 <br>
                 <h2> Login </h2>
                 <br>
-                <form action="" method="post">
+                <form action="/login" method="post">
 
                 <div class="mb-3">
                     <label for="Input1" class="form-label">Username</label>
@@ -32,7 +32,8 @@
 
                   <div class="mb-3">
                     <label for="Input2" class="form-label">Password</label>
-                    <input type="password" id="Input2" class="form-control" aria-describedby="passwordHelpBlock" name="pass">
+                    <input type="password" id="Input2" class="form-control" aria-describedby="passwordHelpBlock" name="pwd">
+                  </div>
                   
                     <div id="passwordHelpBlock" class="form-text">
                       Your password must be 8-20 characters long, contain letters and numbers
@@ -41,7 +42,7 @@
                     <div style="text-align: right; margin-top: 40px;" >
                         <input type="submit" class="btn btn-outline-primary" value = "Login">
                     </div>
-                  Not a member? <a href="Register.html">Register </a>
+                  Not a member? <a href="/register">Register </a>
                   </div>  
                 </form>
             </div>
