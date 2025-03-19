@@ -22,15 +22,16 @@
                 <h1 class="display-5">New Chapter</h1>
                 <br>
                 <br>
-                <form action="" method="post">
+                <form action="/new-chapter/{{subject_id}}" method="POST">
+
                 <div class="mb-3">
-                    <label for="Input1" class="form-label">Chapter Name </label>
-                    <input type="text" class="form-control" id="Input1" placeholder="Electrostatics" name="email">
+                    <label for="chapter_name" class="form-label">Chapter Name </label>
+                    <input type="text" class="form-control" id="chapter_name" placeholder="Electrostatics" name="chapter_name">
                 </div>
                   <br>
                   
                   <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a description about the Chapter here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" name ="description" placeholder="Leave a description about the Chapter here" id="floatingTextarea2" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Description</label>
                   </div>
                   <br>
@@ -43,13 +44,12 @@
 
                 <div style="text-align: right; margin-top: 40px;" >
                     <input type="submit" class="btn btn-outline-primary" value="Create">
-                    <a href="Login Page.html"> 
-                    <button type="button" class="btn btn-outline-danger">Cancel </button>
-                    </a>
+                    <button type="button" class="btn btn-outline-danger" onclick="window.location.href='/admin/dashboard'">Cancel</button>
+
                 </div>
     
 
-                </form>
+            </form>
             </div>
         </div>
     </div>

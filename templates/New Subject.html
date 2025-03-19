@@ -26,20 +26,21 @@
                 <h1 class="display-5">New Subject</h1>
                 <br>
                 <br>
-                <form action="" method="post">
+                <form action="/admin/new-subject" method="POST">
                 <div class="mb-3">
-                    <label for="Input1" class="form-label">Chapter Name </label>
-                    <input type="test" class="form-control" id="Input1" placeholder="Electrostatics" name="email">
+                    <label for="Input1" class="form-label">Subject Name </label>
+                    <input type="text" class="form-control" id="Input1" placeholder="English" name="subject_name">
                 </div>
                   <br>
                   
                   <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a description about the Chapter here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a description about the Chapter here" id="floatingTextarea2" name="description" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Description</label>
+                    
                   </div>
                   <br>
                 
-                <div id="passwordHelpBlock" class="form-text">
+                <div id="text" class="form-text">
                 Note: Always add description for better productivity
                 </div>
                 <br>
@@ -47,9 +48,9 @@
 
                 <div style="text-align: right; margin-top: 40px;" >
                     <input type="submit" class="btn btn-outline-primary" value="Create">
-                    <a href="Login Page.html"> 
-                    <button type="button" class="btn btn-outline-danger">Cancel </button>
-                    </a>
+                    <button type="button" onclick="window.location.href='/admin/dashboard'" class="btn btn-outline-danger">Cancel </button>
+                    <a href="/admin/dashboard"> </a>
+                    
                 </div>
     
 

@@ -5,20 +5,20 @@
     <title> Admin Dashboard</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/style.css">
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
   <style>      
-                #canvas{
-                border: 01px solid black;
-                width: 80%;
-                height: 730px;
-                margin: auto;
-                overflow: auto;
+                #canvas {
+                    border: 1px solid black;
+                    width: 80%;
+                    margin: auto;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    overflow: auto;
                 }
 
                 #subject{
-                    margin-top: 70px;
-                    margin-left: 10px;
-                    margin-right: 10px;
+                    margin-top: 30px;
                 }
                 #new_subject{
                     margin-top: auto; text-align: center; padding: 30px;
@@ -29,18 +29,16 @@
 <body>
     <div id="main">
         <div id="canvas"> 
-
-            <!-- This is the navigation bar code-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Quiz Master- {{username}}</a>
+                  <a class="navbar-brand" href="/admin/dashboard">Quiz Master- {{username}}</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Admin Dashboard.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/admin/dashboard">Home</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="Admin Quiz.html">Quiz</a>
@@ -60,57 +58,60 @@
                 </div>
               </nav>
 
-              <!-- The card section starts here-->
-              <div id = "subject" class="row">
+              
+              <!--card-->
+              <div id="subject" class="row">
+                {% for subject in subjects %}
                 <div class="col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">MAD 1</h5>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ subject.subject_name }}</h5>
+            
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Chapter Name</th>
+                                        <th scope="col">Number of Questions</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for chapter in subject.chapters %}
+                                    <tr>
+                                        <th scope="row">{{ chapter.id }}</th>
+                                        <td>{{ chapter.chapter_name }}</td>
+                                        <td>{{ chapter.quizzes|length if chapter.quizzes else 0  }}</td>
+                                        <td>
+                                            <a type="button" class="btn btn-outline-info btn-sm" href="#">Edit</a>
+                                            <form action = "{{url_for('delete_chapter', chapter_id = chapter.id)}}" method = "POST" style="display: inline;" >
+                                              
+                                              <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                            </form>
+                                          </td>
 
-                      <table class="table table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Chapter Name</th>
-                            <th scope="col">Number of questions</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>App</td>
-                            <td>6</td>
-                            <td> <a type="button" class="btn btn-outline-info" href="#" >Edit </a> <a type="button" class="btn btn-outline-danger" href="#" >Delete </a> </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>HTML</td>
-                            <td>4</td>
-                            <td><a type="button" class="btn btn-outline-info" href="#" >Edit </a> <a type="button" class="btn btn-outline-danger" href="#" >Delete </a> </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>CSS</td>
-                            <td>7</td>
-                            <td><a type="button" class="btn btn-outline-info" href="#" >Edit</a> <a type="button" class="btn btn-outline-danger" href="#" >Delete </a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <p class="card-text">You can add new chapter using the button below</p>
-                      
-                      <a href="New Chapter.html" class="btn btn-primary">Add chapter </a>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+        
+                            <p class="card-text">{{subject.description}}</p>
+                            <a class="btn btn-primary btn-sm" 
+                               href="{{ url_for('new_chapter', subject_id=subject.id) }}">Add Chapter
+                            </a>
+                        </div>
                     </div>
-                  </div>
                 </div>
+                <br>
+                <br>
+                {% endfor %}
+            </div>
 
-                <!-- Card 2-->
+                <!-- Card
                 <div class="col-sm-6">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">English</h5>
-
                       <table class="table table-striped table-hover">
                         <thead>
                           <tr>
@@ -141,32 +142,17 @@
                           </tr>
                         </tbody>
                       </table>
-
                       <p class="card-text">You can add new chapter using the button below</p>
-                      <a class="btn btn-primary" href="New Chapter.html">Add chapter</a>
+                      <a class="btn btn-primary" href="/new-chapter/{{subject_id}}">Add chapter</a>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               
-              <!-- New content button-->
-               
-            
-            <div id = "new_subject"  >
-                <a type="button" class="btn btn-outline-primary" href="New Subject.html">Add new subject </a>
-
-            </div>
-               
-            
-               
-
-
-
-
-
-            
-            </div>
-
-
+              <div id = "new_subject">
+                <a type="button" class="btn btn-outline-primary" href="/admin/new-subject">Add new subject </a>
+              </div>
         </div>
+    </div>
 </body>
+</html>

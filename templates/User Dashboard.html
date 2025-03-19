@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/style.css">
   <style>      
                 #canvas{
-                border: 01px solid black;
+                border: 1px solid black;
                 width: 80%;
                 height: 730px;
                 margin: auto;
@@ -22,18 +22,15 @@
                     border: 1px solid black;
                     overflow-y: auto;
                 }
-
   </style>
 </head>
 
 <body>
     <div id="main">
         <div id="canvas"> 
-
-            <!-- This is the navigation bar code-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Quiz Master- {{username}}</a>
+                  <a class="navbar-brand" href="#">Quiz Master- {{this_user.username}}</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -60,24 +57,7 @@
                 </div>
               </nav>
 
-            <br>
-            <br>
-
-
-
-
-
-
-
-
-
-
-
-              <!-- The box section starts here-->
-             
-             
-              <h1 style="margin-left: 5%;" class="display-6">Upcoming Quizes</h1>
-             
+              <h1 style="margin-left: 5%;" class="display-6">Upcoming Quizzes</h1>
               <div id = "tablebox">
                 <table class="table">
                     <thead>
@@ -95,60 +75,26 @@
                         <td>5</td>
                         <td class="text-muted small">02/03/2025</td>
                         <td class="text-muted small">03:45</td>
-                        <td> <a type="button" class="btn btn-outline-info" href="User View Quiz.html" >View</a> <a type="button" class="btn btn-outline-primary" href="User Quiz UI.html" >Start </a> </td>
+                        <td> <a type="button" class="btn btn-outline-info" href="User View Quiz.html">View</a> <a type="button" class="btn btn-outline-primary" href="User Quiz UI.html">Start</a> </td>
                       </tr>
-
-                      
                       <tr>
                         <th scope="row">9</th>
                         <td>5</td>
                         <td class="text-muted small">12/04/2025</td>
                         <td class="text-muted small">09:25</td>
-                        <td> <a type="button" class="btn btn-outline-info" href="#" >View</a> <a type="button" class="btn btn-outline-primary" href="#" >Start </a> </td>
+                        <td> <a type="button" class="btn btn-outline-info" href="#">View</a> <a type="button" class="btn btn-outline-primary" href="#">Start</a> </td>
                       </tr>
-
                       <tr>
                         <th scope="row">1</th>
                         <td>9</td>
                         <td class="text-muted small">05/07/2025</td>
                         <td class="text-muted small">08:05</td>
-                        <td> <a type="button" class="btn btn-outline-info" href="#" >View</a> <a type="button" class="btn btn-outline-primary" href="#" >Start </a> </td>
+                        <td> <a type="button" class="btn btn-outline-info" href="#">View</a> <a type="button" class="btn btn-outline-primary" href="#">Start</a> </td>
                       </tr>
-
-
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>9</td>
-                        <td class="text-muted small">05/07/2025</td>
-                        <td class="text-muted small">08:05</td>
-                        <td> <a type="button" class="btn btn-outline-info" href="#" >View</a> <a type="button" class="btn btn-outline-primary" href="#" >Start </a> </td>
-                      </tr>
-
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>9</td>
-                        <td class="text-muted small">05/07/2025</td>
-                        <td class="text-muted small">08:05</td>
-                        <td> <a type="button" class="btn btn-outline-info" href="#" >View</a> <a type="button" class="btn btn-outline-primary" href="#" >Start </a> </td>
-                      </tr>
-
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>9</td>
-                        <td class="text-muted small">05/07/2025</td>
-                        <td class="text-muted small">08:05</td>
-                        <td> <a type="button" class="btn btn-outline-info" href="#" >View</a> <a type="button" class="btn btn-outline-primary" href="#" >Start </a> </td>
-                      </tr>
-
                     </tbody>
                   </table>
-                    
-            
-
-
-            
             </div>
-
-
         </div>
+    </div>
 </body>
+</html>
