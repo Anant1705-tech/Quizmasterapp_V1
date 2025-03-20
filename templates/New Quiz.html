@@ -28,8 +28,8 @@
                 <form action="/admin/new-quiz/{{chapter_id}}" method="post">
 
                 <div class="mb-3">
-                    <label for="Input1" class="form-label">Chapter ID</label>
-                    <input type="username" class="form-control" id="Input1" placeholder="" name="chapterID">
+                    <label for="Input1" class="form-label">Chapter</label>
+                    <input type="text" class="form-control" id="Input1" placeholder="" name="chapterID">
                 </div>
                   <br>
 
@@ -45,7 +45,7 @@
                     </div>
                     <div style="text-align: right; margin-top: 40px;" >
                         <input type="submit" class="btn btn-outline-primary" value = "Create">
-                        <input type="submit" class="btn btn-outline-danger" value = "Cancel">
+                        <input type="submit" class="btn btn-outline-danger" onclick="window.location.href = '/admin/quiz'" value = "Cancel">
                      </div>
                 </form>
             </div>

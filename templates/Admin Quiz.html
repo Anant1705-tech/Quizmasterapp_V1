@@ -40,10 +40,10 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Admin Dashboard.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/admin/dashboard">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="Admin Quiz.html">Quiz</a>
+                        <a class="nav-link" href="/admin/quiz">Quiz</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="Admin Summaray Page.html">Summary</a>
@@ -129,7 +129,7 @@
                 <div class="col-sm-6">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Quiz2</h5>
+                      <h5 class="card-title">Tenses</h5>
 
                       <table class="table table-striped table-hover">
                         <thead>
@@ -181,7 +181,7 @@
                
             
             <div id = "new_subject"  >
-                <a type="button" class="btn btn-outline-primary" href="New Quiz.html">Add Quiz </a>
+                <a type="button" class="btn btn-outline-primary" href="{{url_for('new_quiz', chapter_id = chapter.id)}}">Add Quiz </a>
 
             </div>
                

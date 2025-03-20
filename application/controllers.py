@@ -8,7 +8,7 @@ def start_page():
     return redirect(url_for("login"))
 
 
-
+# login part 
 @app.route("/login",methods=["GET","POST"]) #url with specific http method gives specific results
 def login():
     if request.method == "POST":
@@ -30,9 +30,6 @@ def login():
    
     return render_template("Login Page.html")
 
-
-
-
 @app.route("/register",methods=["GET","POST"]) #url with specific http method gives specific results
 def register():
     if request.method == "POST":
@@ -51,6 +48,10 @@ def register():
 
 
 
+
+
+
+# Admin dashboard- Home part
 @app.route("/admin/dashboard")
 def admin_dashboard():
     subjects = Subject.query.all()
@@ -74,7 +75,7 @@ def new_subject():
 
 @app.route("/new-chapter/<int:subject_id>", methods = ["GET", "POST"])
 def new_chapter(subject_id):
-    subject = Subject.query.get(subject_id) #subject table and id column in subject_id
+    subject = Subject.query.get(subject_id) #subject table and id column in subject_id (subject_id is taken from  admin dashboard href)
     if not subject:
         return("Added the chapter successfully")
         # return redirect("/admin/dashboard")
@@ -88,7 +89,6 @@ def new_chapter(subject_id):
 
     return render_template("New Chapter.html", subject = subject, subject_id = subject.id)
 
-
 @app.route("/delete/chapter/<int:chapter_id>", methods=["POST"])
 def delete_chapter(chapter_id):
     chapter = Chapter.query.get(chapter_id)
@@ -99,13 +99,20 @@ def delete_chapter(chapter_id):
 
 
 
+# Quiz part of admin dashboard
+@app.route("/admin/quiz", methods = ["GET", "POST"])
+def admin_quiz():
+    chapter= Chapter.query.first()
+    Quizzes = Quiz.query.all()
+    return render_template("Admin Quiz.html", Quizzes = Quizzes, chapter = chapter)
+
 
 @app.route("/admin/new-quiz/<int:chapter_id>", methods=["GET", "POST"])
 def new_quiz(chapter_id):
-    chapter = Chapter.query.get(chapter_id)  # Fetch the chapter by ID
+    chapter = Chapter.query.get(chapter_id)  # Fetch the chapter by ID, chapter_id is taken from admin quiz href which is pointing to chapter table and id column which is chapter.id
     if not chapter:
-        flash("Chapter not found!", "danger")
-        return redirect("/admin/dashboard")
+        return("Chapter not found")
+        # return redirect("/admin/dashboard")
 
     if request.method == "POST":
         quiz_title = request.form.get("quiz_title")
@@ -122,6 +129,5 @@ def new_quiz(chapter_id):
         )
         db.session.add(new_quiz)
         db.session.commit()
-        flash("Quiz added successfully!", "success")
         return redirect("/admin/dashboard")
-    return render_template("New Quiz.html", chapter=chapter)
+    return render_template("New Quiz.html", chapter=chapter, )
