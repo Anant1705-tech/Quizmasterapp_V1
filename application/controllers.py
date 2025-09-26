@@ -64,8 +64,8 @@ def new_subject():
     if request.method == "POST":
         subject_name = request.form.get("subject_name")
         description =  request.form.get("description")
-        new_subject = Subject(subject_name = subject_name, description = description)
-        db.session.add(new_subject)
+        new_subject = Subject(subject_name = subject_name, description = description) #LHS is a column of the subject table, RHS is the user provided
+        db.session.add(new_subject) 
         db.session.commit()
 
         return("Added the subject successfully")
@@ -103,8 +103,9 @@ def delete_chapter(chapter_id):
 @app.route("/admin/quiz", methods = ["GET", "POST"])
 def admin_quiz():
     chapter= Chapter.query.first()
+    subjects = Subject.query.all()
     Quizzes = Quiz.query.all()
-    return render_template("Admin Quiz.html", Quizzes = Quizzes, chapter = chapter)
+    return render_template("Admin Quiz.html", Quizzes = Quizzes, chapter = chapter, subjects = subjects)
 
 
 @app.route("/admin/new-quiz/<int:chapter_id>", methods=["GET", "POST"])
@@ -115,19 +116,32 @@ def new_quiz(chapter_id):
         # return redirect("/admin/dashboard")
 
     if request.method == "POST":
-        quiz_title = request.form.get("quiz_title")
-        date_of_quiz = request.form.get("date_of_quiz")
-        time_duration = request.form.get("time_duration")
-        remarks = request.form.get("remarks")
-
-        new_quiz = Quiz(
-            quiz_title=quiz_title,
-            date_of_quiz=date_of_quiz,
-            time_duration=time_duration,
-            remarks=remarks,
-            chapter_id=chapter_id,
-        )
+        chapter_id = request.form.get("chapter_id")
+        date_of_quiz = request.form.get("date")
+        time_duration = request.form.get("duration")
+        new_quiz = Quiz(chapter_id = chapter_id, date_of_quiz = date_of_quiz, time_duration= time_duration) #LHS is the attribute name of the table quiz and rhs is what we fetched from the form using the variables above we used same variables for fetching as the attribute to make it more intuitive
         db.session.add(new_quiz)
         db.session.commit()
         return redirect("/admin/dashboard")
     return render_template("New Quiz.html", chapter=chapter, )
+
+
+
+@app.route("/add-questions/<int:quiz_id>")
+def add_questions(quiz_id):    
+    quiz = quiz.query.get(quiz_id)
+    chapter = chapter.query.get(quiz.chapter_id)
+
+    chapter_id = request.form.get("chapter_id")
+    question_title = request.form.get("question_title")
+    question_statement = request.form.get("question_statement")
+    option1 = request.form.get("option1")
+    option2 = request.form.get("option2")
+    option3 = request.form.get("option3")
+    option4 = request.form.get("option4")
+    correct_answer = request.form.get("correct_answer")
+
+    new_question = Question(question_statement = question_statement, question_title = question_title, option1 = option1, option2 = option2, option3 = option3, option4=option4, correct_answer = correct_answer, chapter_id = chapter_id)
+
+
+
